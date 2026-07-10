@@ -21,6 +21,8 @@ const transporter = nodemailer.createTransport({
   }
 });
 
+const isEmailConfigured = Boolean(process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD);
+
 // Email endpoint
 app.post('/api/send-email', async (req, res) => {
   const { name, email, message, subject } = req.body;
@@ -28,6 +30,10 @@ app.post('/api/send-email', async (req, res) => {
   // Validation
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Missing required fields' });
+  }
+
+  if (!isEmailConfigured) {
+    return res.status(500).json({ error: 'Email service is not configured on the server.' });
   }
 
   try {
@@ -59,13 +65,13 @@ app.post('/api/send-email', async (req, res) => {
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
           <h2 style="color: #7c3aed;">Thank You!</h2>
           <p>Hi ${name},</p>
-          <p>Thank you for reaching out! I've received your message and will get back to you as soon as possible.</p>
+          <p>Thank you for reaching out! I have received your message and will get back to you as soon as possible.</p>
           <p>Best regards,<br/>Amna Awan</p>
         </div>
       `
     });
 
-    res.json({ success: true, message: 'Email sent successfully' });
+    res.json({ success: true, message: "Thanks! I'll get back to you as soon as I can." });
   } catch (error) {
     console.error('Error sending email:', error);
     res.status(500).json({ error: 'Failed to send email', details: error.message });

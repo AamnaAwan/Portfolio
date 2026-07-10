@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" rx="32" fill="#0f172a"/>
+  <rect x="48" y="48" width="1104" height="534" rx="24" fill="#111827" stroke="#312e81" stroke-width="2"/>
+  <circle cx="920" cy="220" r="170" fill="#4338ca" opacity="0.35"/>
+  <circle cx="300" cy="420" r="220" fill="#f59e0b" opacity="0.16"/>
+  <path d="M240 435h220" stroke="#f8fafc" stroke-width="10" stroke-linecap="round"/>
+  <path d="M280 390v-90c0-57 46-103 103-103h116" stroke="#f8fafc" stroke-width="10" stroke-linecap="round"/>
+  <path d="M730 250h140" stroke="#f8fafc" stroke-width="10" stroke-linecap="round"/>
+  <path d="M730 320h220" stroke="#d1d5db" stroke-width="8" stroke-linecap="round"/>
+  <path d="M730 380h180" stroke="#d1d5db" stroke-width="8" stroke-linecap="round"/>
+  <text x="240" y="190" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="700">Amna Awan</text>
+  <text x="240" y="250" fill="#c7d2fe" font-family="Inter, Arial, sans-serif" font-size="32">Product designer • developer • strategist</text>
+</svg>

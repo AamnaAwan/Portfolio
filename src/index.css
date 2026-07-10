@@ -1,5 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
+
+:root {
+  color-scheme: light dark;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: linear-gradient(135deg, #120E1E 0%, #0F0A1A 100%);
+  color: #F5F3F7;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: #F5F3F7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Fraunces", serif;
+}
+
+.hero-skill-bubble {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-skill-bubble::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(232, 196, 104, 0.16), transparent 60%, rgba(139, 92, 246, 0.18));
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.hero-skill-bubble:hover::before {
+  opacity: 1;
+}
+
+.hero-suggestion-card {
+  box-shadow: 0 18px 45px rgba(4, 4, 8, 0.24);
+}
+
+.hero-suggestion-card:hover {
+  border-color: rgba(232, 196, 104, 0.35);
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.18);
 }

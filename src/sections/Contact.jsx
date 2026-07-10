@@ -5,39 +5,40 @@ export default function Contact() {
   const navigate = useNavigate();
 
   return (
-    <section id="contact" className="py-32 px-4 md:px-10 relative overflow-hidden bg-white dark:bg-slate-900">
-      {/* Background Elements */}
-      <div className="absolute inset-0 -z-10">
-        <motion.div
-          animate={{ x: [0, 50, 0] }}
-          transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-1/2 right-0 w-96 h-96 bg-accent-200/20 dark:bg-accent-500/15 rounded-full blur-3xl"
-        />
-      </div>
-
-      <div className="max-w-4xl mx-auto text-center">
+    <section id="contact" className="relative overflow-hidden bg-[#120E1E] px-3 py-16 sm:px-4 md:px-10 md:py-28">
+      <div className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,_rgba(23,17,38,0.98),_rgba(18,14,30,0.96))] px-5 py-12 text-center shadow-[0_24px_70px_-30px_rgba(139,92,246,0.4)] sm:px-8 sm:py-16 md:px-12">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.16),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(124,58,237,0.18),_transparent_36%)]" />
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="relative"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
-            Ready to <span className="text-accent-600 dark:text-accent-400">build together</span>?
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#FDE68A]">
+            <span className="h-2 w-2 rounded-full bg-[#F59E0B]" />
+            Open for select projects
+          </div>
+          <h2 className="mb-4 font-heading text-3xl font-bold text-[#F5F3F7] sm:text-4xl md:text-6xl">
+            Ready to <span className="text-[#E8C468]">build together</span>?
           </h2>
-          <div className="w-20 h-1 bg-accent-600 dark:bg-accent-400 rounded-full mx-auto mb-6"></div>
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-8">
-            Got a project in mind? Let's create something great.
+          <div className="mx-auto mb-6 h-1 w-24 rounded-full bg-gradient-to-r from-[#7C3AED] via-[#A78BFA] to-[#F59E0B]" />
+          <p className="mx-auto mb-8 max-w-2xl text-base leading-8 text-[#B8B0C4] sm:text-lg md:text-xl">
+            Whether it is a brand launch, a product rethink, or a polished web experience, I create work that feels sharp, clear, and memorable.
           </p>
-          
+
           <motion.button
             onClick={() => navigate("/contact")}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block px-10 py-4 bg-accent-600 dark:bg-accent-500 text-white rounded-lg font-bold text-lg hover:bg-accent-700 dark:hover:bg-accent-600 transition cursor-pointer shadow-lg hover:shadow-xl"
+            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#7C3AED] via-[#A78BFA] to-[#F59E0B] px-8 py-3.5 text-lg font-semibold text-white shadow-[0_0_45px_rgba(139,92,246,0.28)] transition hover:shadow-[0_0_55px_rgba(245,158,11,0.28)]"
           >
-            Get In Touch →
+            Start a conversation
+            <span className="ml-2 text-xl">→</span>
           </motion.button>
         </motion.div>
+        <p className="relative mt-10 text-sm text-[#B8B0C4]">
+          © {new Date().getFullYear()} Bee&apos;sHive. All rights reserved.
+        </p>
       </div>
     </section>
   );

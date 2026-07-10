@@ -2,41 +2,41 @@ import { motion } from "framer-motion";
 
 const expertise = [
   {
-    icon: "💻",
-    title: "Frontend Development",
-    description: "Building interactive, responsive UIs with modern technologies",
-    skills: ["React.js", "JavaScript (ES6+)", "HTML5 & CSS3", "Responsive Design", "Dynamic Rendering"]
+    title: "Frontend",
+    icon: "⚡",
+    accent: "from-[#7C3AED] via-[#A78BFA] to-[#E9D5FF]",
+    description: "Interfaces that feel premium and alive.",
+    skills: ["React", "Tailwind", "Framer Motion", "Responsive UI"],
+    level: 92,
+    feature: "Motion-first UI",
   },
   {
-    icon: "🎨",
-    title: "UI/UX & Animations",
-    description: "Crafting polished interfaces with smooth micro-interactions",
-    skills: ["Tailwind CSS", "Framer Motion", "Scroll Animations", "Mobile Optimization", "Reveal Effects"]
+    title: "Product Thinking",
+    icon: "🧠",
+    accent: "from-[#D97706] via-[#F59E0B] to-[#FDE68A]",
+    description: "Clear flows, thoughtful structure, better decisions.",
+    skills: ["UX Patterns", "Interaction Design", "Conversion Flow", "Storytelling"],
+    level: 88,
+    feature: "Clarity over clutter",
   },
   {
-    icon: "🔥",
-    title: "Backend & Database",
-    description: "Building robust data layers and real-time functionality",
-    skills: ["Firebase", "Firestore (CRUD)", "Authentication", "Real-time Data", "Node.js/Express Basics"]
+    title: "Backend",
+    icon: "☁️",
+    accent: "from-[#0891B2] via-[#22D3EE] to-[#7C3AED]",
+    description: "Reliable systems behind polished experiences.",
+    skills: ["Firebase", "Node", "APIs", "Auth"],
+    level: 84,
+    feature: "Scalable foundations",
   },
   {
+    title: "Performance",
     icon: "🚀",
-    title: "Deployment & DevOps",
-    description: "Handling production issues with real-world experience",
-    skills: ["Netlify", "Render", "Build Issue Resolution", "API Connection Fixes", "Production Debugging"]
+    accent: "from-[#0F766E] via-[#2DD4BF] to-[#A7F3D0]",
+    description: "Fast, lean, and ready for real users.",
+    skills: ["Optimization", "Build Fixes", "Debugging", "Launch Prep"],
+    level: 90,
+    feature: "Launch-ready polish",
   },
-  {
-    icon: "🧩",
-    title: "Data & Integration",
-    description: "Managing async operations and data persistence",
-    skills: ["API Integration", "Async Data Fetching", "LocalStorage Usage", "State Management"]
-  },
-  {
-    icon: "🛠️",
-    title: "Problem Solving",
-    description: "Debugging real-world production issues with confidence",
-    skills: ["Deployment Bugs", "Backend Errors", "Runtime Issues", "Production Troubleshooting"]
-  }
 ];
 
 export default function About() {
@@ -60,70 +60,128 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-32 px-4 md:px-10 bg-gradient-to-b from-white via-accent-50/50 dark:from-slate-900 dark:via-accent-950/5 to-white dark:to-slate-900">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
+    <section id="about" className="bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.2),_transparent_60%)] px-3 py-16 sm:px-4 md:px-10 md:py-28">
+      <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="mb-14"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
-            About <span className="text-accent-600 dark:text-accent-400">Me</span>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.35em] text-[#F59E0B]">
+            About me
+          </p>
+          <h2 className="max-w-3xl font-heading text-3xl font-bold text-[#F5F3F7] sm:text-4xl md:text-6xl">
+            I turn ideas into sharp, memorable digital experiences.
           </h2>
-          <div className="w-20 h-1 bg-accent-600 dark:bg-accent-400 rounded-full"></div>
         </motion.div>
 
-        {/* Bio Section */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-20"
+          className="mb-14 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]"
         >
-          <div className="space-y-4 text-lg text-gray-800 dark:text-gray-200 leading-relaxed">
-            <p>
-              I learned development by <span className="text-accent-600 dark:text-accent-400 font-semibold">building real products</span> — debugging broken deployments, fixing API errors, handling production issues. That's where real learning happens.
+          <div className="rounded-[32px] border border-white/10 bg-[linear-gradient(135deg,rgba(23,17,38,0.92),rgba(10,8,22,0.95))] p-6 shadow-[0_30px_80px_rgba(8,6,18,0.28)] backdrop-blur sm:p-8">
+            <div className="mb-6 h-1.5 w-24 rounded-full bg-gradient-to-r from-[#7C3AED] via-[#F59E0B] to-[#C4B5FD]" />
+            <p className="text-lg leading-8 text-[#D8C7FF]">
+              I learned by building real things — shipping websites, fixing broken flows, handling launch issues, and turning rough ideas into calm, polished products.
             </p>
-            <p>
-              I create <span className="text-accent-600 dark:text-accent-400 font-semibold">polished, interactive interfaces</span> with smooth animations, paired with robust backend work using Firebase and Node.js. Full-stack end-to-end.
+            <p className="mt-4 text-lg leading-8 text-[#B8B0C4]">
+              My work sits at the intersection of design, motion, and dependable engineering. The goal is never just “a site” — it is a feeling that feels clear, modern, and effortless.
             </p>
+          </div>
+
+          <div className="rounded-[32px] border border-[#F59E0B]/20 bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.22),_transparent_35%),rgba(23,17,38,0.94)] p-6 shadow-[0_20px_70px_rgba(0,0,0,0.22)] sm:p-8">
+            <div className="mb-5 flex items-center justify-between">
+              <h3 className="text-xl font-semibold text-[#F5F3F7]">Signature style</h3>
+              <span className="rounded-full border border-[#F59E0B]/30 bg-[#F59E0B]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-[#FDE68A]">
+                Intentional
+              </span>
+            </div>
+            <div className="space-y-3">
+              {[
+                "Clean visual hierarchy",
+                "Soft motion that guides attention",
+                "Thoughtful interaction details",
+                "Reliable handoff-ready build quality",
+              ].map((point) => (
+                <div key={point} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-[#D9D0E8]">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#A78BFA] shadow-[0_0_12px_rgba(167,139,250,0.7)]" />
+                  {point}
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
 
-        {/* Expertise Grid */}
-        <div className="mb-16">
-          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">Core Expertise</h3>
+        <div className="mb-6">
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#F59E0B]">Expertise</p>
+              <h3 className="text-2xl font-bold text-[#F5F3F7] sm:text-3xl">A polished mix of strategy, design, and execution</h3>
+            </div>
+            <p className="max-w-xl text-sm leading-7 text-[#B8B0C4]">
+              I build interfaces that feel elevated, intuitive, and ready to perform in the real world.
+            </p>
+          </div>
+
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid gap-5 md:grid-cols-2"
           >
-            {expertise.map((area, index) => (
+            {expertise.map((area) => (
               <motion.div
-                key={index}
+                key={area.title}
                 variants={itemVariants}
-                whileHover={{ y: -5 }}
-                className="bg-white dark:bg-accent-950/20 border border-accent-200 dark:border-accent-800 rounded-xl p-6 hover:border-accent-500 dark:hover:border-accent-500 transition"
+                whileHover={{ y: -5, scale: 1.01 }}
+                className="group relative overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(135deg,rgba(20,15,35,0.98),rgba(10,8,20,0.98))] p-5 shadow-[0_20px_70px_rgba(8,6,18,0.24)] sm:p-6"
               >
-                <div className="flex items-start gap-4 mb-4">
-                  <span className="text-4xl">{area.icon}</span>
-                  <h4 className="text-xl font-bold text-gray-900 dark:text-white">{area.title}</h4>
-                </div>
-                <p className="text-gray-700 dark:text-gray-300 mb-4 text-sm leading-relaxed">
-                  {area.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {area.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 bg-accent-100 dark:bg-accent-900/40 text-accent-800 dark:text-accent-200 rounded-full text-xs font-medium"
-                    >
-                      {skill}
+                <div className={`absolute inset-0 bg-gradient-to-br ${area.accent} opacity-10 transition duration-500 group-hover:opacity-20`} />
+                <div className="absolute -right-6 top-6 h-24 w-24 rounded-full bg-white/5 blur-3xl" />
+                <div className="relative">
+                  <div className="mb-5 flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${area.accent} text-xl shadow-[0_12px_30px_rgba(0,0,0,0.2)]`}>
+                        {area.icon}
+                      </div>
+                      <div>
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/45">Core strength</p>
+                        <h4 className="text-xl font-semibold text-[#F5F3F7]">{area.title}</h4>
+                      </div>
+                    </div>
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FDE68A]">
+                      {area.feature}
                     </span>
-                  ))}
+                  </div>
+
+                  <p className="mb-5 text-sm leading-7 text-[#CCC4D8]">{area.description}</p>
+
+                  <div className="mb-5">
+                    <div className="mb-2 flex items-center justify-between text-xs uppercase tracking-[0.25em] text-white/55">
+                      <span>Depth</span>
+                      <span className="font-semibold text-[#F5F3F7]">{area.level}%</span>
+                    </div>
+                    <div className="h-2 rounded-full bg-white/10">
+                      <div
+                        className={`h-2 rounded-full bg-gradient-to-r ${area.accent}`}
+                        style={{ width: `${area.level}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {area.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-[#E9D5FF]"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}

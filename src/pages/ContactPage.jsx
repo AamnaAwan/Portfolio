@@ -1,14 +1,6 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
-
-// Initialize EmailJS
-const EMAILJS_SERVICE_ID = "service_o57l049";
-const EMAILJS_TEMPLATE_ID = "template_5hhzw0z";
-const EMAILJS_PUBLIC_KEY = "B9abUvjcJpE_5JvNF";
-
-emailjs.init(EMAILJS_PUBLIC_KEY);
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -32,15 +24,16 @@ const itemVariants = {
 
 export default function ContactPage() {
   const navigate = useNavigate();
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const contactMethods = [
-    { icon: "📸", label: "Instagram", value: "@studioby_aamna", link: "https://www.instagram.com/studioby_aamna/" },
-    { icon: "💼", label: "LinkedIn", value: "Amna Awan", link: "https://www.linkedin.com/in/amna-awan-2608sam" },
-    { icon: "🐙", label: "GitHub", value: "AamnaAwan", link: "https://github.com/AamnaAwan" },
+    { icon: "📸", label: "Instagram", value: "@studioby_aamna", link: "https://www.instagram.com/studioby_aamna/", accent: "from-[#F59E0B] to-[#FDE68A]" },
+    { icon: "💼", label: "LinkedIn", value: "Amna Awan", link: "https://www.linkedin.com/in/amna-awan-2608sam", accent: "from-[#7C3AED] to-[#A78BFA]" },
+    { icon: "🐙", label: "GitHub", value: "AamnaAwan", link: "https://github.com/AamnaAwan", accent: "from-[#0891B2] to-[#22D3EE]" },
   ];
 
   const handleChange = (e) => {
@@ -50,9 +43,9 @@ export default function ContactPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email || !formData.message) {
-      setErrorMessage("❌ Please fill in all fields");
+      setErrorMessage("❌ Please fill in your name, email, and message.");
       return;
     }
 
@@ -61,71 +54,62 @@ export default function ContactPage() {
     setErrorMessage("");
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          to_email: "awanaamna74@gmail.com",
-          from_name: formData.name,
-          from_email: formData.email,
+      const response = await fetch(`${apiUrl}/api/send-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
           subject: formData.subject || "Portfolio Contact Form",
           message: formData.message,
-        }
-      );
+        }),
+      });
 
-      setSuccessMessage("✅ Message sent successfully! I'll get back to you soon.");
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send your message. Please try again.");
+      }
+
+      setSuccessMessage(data.message || "Thanks! I'll get back to you as soon as I can.");
       setFormData({ name: "", email: "", subject: "", message: "" });
-      setTimeout(() => setSuccessMessage(""), 5000);
     } catch (error) {
       console.error("Email error:", error);
-      setErrorMessage(
-        `❌ ${error.message || "Failed to send message. Please try again or contact via Instagram."}`
-      );
+      setErrorMessage(`❌ ${error.message || "Failed to send your message. Please try again."}`);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 text-gray-900 dark:text-white transition-colors duration-300 relative overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden bg-[#120E1E] text-[#F5F3F7] transition-colors duration-300">
       {/* Back button */}
       <motion.button
         onClick={() => navigate("/")}
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="fixed top-20 left-4 md:left-10 px-6 py-2 text-accent-700 dark:text-accent-400 hover:text-accent-900 dark:hover:text-accent-300 font-semibold transition z-40"
+        className="fixed left-3 top-4 z-40 rounded-full border border-white/10 bg-[#140F24]/80 px-4 py-2 text-sm font-semibold text-[#F5F3F7] backdrop-blur transition hover:bg-[#1B1428] sm:left-4 sm:top-20 md:left-10"
       >
         ← Back to Home
       </motion.button>
 
-      {/* Background Elements */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <motion.div
-          animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
-          transition={{ duration: 15, repeat: Infinity }}
-          className="absolute top-1/4 right-0 w-96 h-96 bg-accent-200/20 dark:bg-accent-500/15 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ x: [0, -50, 0], y: [0, 30, 0] }}
-          transition={{ duration: 18, repeat: Infinity }}
-          className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-300/15 dark:bg-accent-600/10 rounded-full blur-3xl"
-        />
-      </div>
-
-      <div className="relative pt-32 pb-20">
-        {/* Header */}
+      <div className="relative pb-20 pt-32">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20 px-4"
+          className="mb-16 px-3 text-center sm:mb-20 sm:px-4"
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Let's <span className="text-accent-600 dark:text-accent-400">Connect</span>
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.35em] text-[#D8C7FF] backdrop-blur">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#E8C468]" />
+            Let’s build something memorable
+          </div>
+          <h1 className="mb-6 font-heading text-4xl font-bold sm:text-5xl md:text-7xl">
+            Let's <span className="text-[#E8C468]">Connect</span>
           </h1>
-          <div className="w-20 h-1 bg-accent-600 dark:bg-accent-400 rounded-full mx-auto"></div>
-          <p className="text-xl text-gray-700 dark:text-gray-300 mt-6 max-w-2xl mx-auto">
-            Got a project in mind? Send me a message and let's build something great together.
+          <div className="mx-auto mb-6 h-1 w-24 rounded-full bg-gradient-to-r from-[#7C3AED] via-[#A78BFA] to-[#F59E0B]" />
+          <p className="mx-auto max-w-2xl text-lg leading-8 text-[#B8B0C4] md:text-xl">
+            Whether you need a polished launch, a refresh, or a full product experience, I’d love to hear what you’re building.
           </p>
         </motion.div>
 
@@ -135,7 +119,7 @@ export default function ContactPage() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid md:grid-cols-3 gap-8 mb-20"
+            className="mb-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 sm:mb-20"
           >
             {contactMethods.map((method, index) => (
               <motion.a
@@ -144,17 +128,22 @@ export default function ContactPage() {
                 href={method.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -10 }}
+                whileHover={{ scale: 1.03, y: -6 }}
                 className="group text-center"
               >
-                <div className="bg-accent-50 dark:bg-accent-950/20 border border-accent-300 dark:border-accent-800 rounded-2xl p-8 hover:border-accent-500 dark:hover:border-accent-500 hover:bg-accent-100 dark:hover:bg-accent-900/40 transition duration-300">
-                  <p className="text-6xl mb-4">{method.icon}</p>
-                  <h3 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-accent-700 dark:group-hover:text-accent-400 transition">
-                    {method.label}
-                  </h3>
-                  <p className="text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition">
-                    {method.value}
-                  </p>
+                <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(135deg,rgba(23,17,38,0.98),rgba(12,10,24,0.98))] p-8 shadow-[0_20px_60px_rgba(8,6,18,0.24)] transition duration-300 hover:border-white/20 hover:shadow-[0_24px_70px_rgba(139,92,246,0.18)]">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${method.accent} opacity-10 transition duration-300 group-hover:opacity-20`} />
+                  <div className="relative">
+                    <div className={`mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${method.accent} text-3xl shadow-[0_12px_30px_rgba(0,0,0,0.2)]`}>
+                      {method.icon}
+                    </div>
+                    <h3 className="mb-2 text-2xl font-bold text-[#F5F3F7] transition group-hover:text-[#E8C468]">
+                      {method.label}
+                    </h3>
+                    <p className="text-[#B8B0C4] transition group-hover:text-[#F5F3F7]">
+                      {method.value}
+                    </p>
+                  </div>
                 </div>
               </motion.a>
             ))}
@@ -165,14 +154,17 @@ export default function ContactPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="bg-gradient-to-r from-accent-200 dark:from-accent-950/40 to-accent-100 dark:to-accent-900/20 border border-accent-400 dark:border-accent-800 rounded-3xl p-12 md:p-16 mb-12"
+            className="mb-12 overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(135deg,_rgba(23,17,38,0.98),_rgba(18,14,30,0.96))] p-6 shadow-[0_24px_70px_-30px_rgba(139,92,246,0.35)] sm:p-8 md:p-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white text-center">
-              Send me a Message
-            </h2>
-            <p className="text-lg text-gray-800 dark:text-gray-200 mb-8 max-w-2xl mx-auto text-center">
-              Fill out the form below and I'll get back to you within 24 hours.
-            </p>
+            <div className="mb-8 text-center">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.35em] text-[#E8C468]">Direct message</p>
+              <h2 className="mb-4 font-heading text-3xl font-bold text-[#F5F3F7] md:text-4xl">
+                Send me a Message
+              </h2>
+              <p className="mx-auto max-w-2xl text-lg leading-8 text-[#B8B0C4]">
+                Share a few details and I’ll follow up with a thoughtful reply.
+              </p>
+            </div>
 
             <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
               {/* Status Messages */}
@@ -180,7 +172,7 @@ export default function ContactPage() {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-green-100 dark:bg-green-900/30 border border-green-400 dark:border-green-700 text-green-800 dark:text-green-200 px-6 py-4 rounded-lg"
+                  className="border border-emerald-400/40 bg-emerald-500/10 px-6 py-4 rounded-lg text-emerald-200"
                 >
                   {successMessage}
                 </motion.div>
@@ -189,7 +181,7 @@ export default function ContactPage() {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-red-100 dark:bg-red-900/30 border border-red-400 dark:border-red-700 text-red-800 dark:text-red-200 px-6 py-4 rounded-lg"
+                  className="border border-rose-400/40 bg-rose-500/10 px-6 py-4 rounded-lg text-rose-200"
                 >
                   {errorMessage}
                 </motion.div>
@@ -197,55 +189,55 @@ export default function ContactPage() {
 
               {/* Name Field */}
               <div>
-                <label className="block text-gray-900 dark:text-white font-semibold mb-2">Name</label>
+                <label className="mb-2 block font-semibold text-[#F5F3F7]">Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white dark:bg-black/30 border border-accent-300 dark:border-accent-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-accent-500 dark:focus:border-accent-400 transition"
+                  className="w-full rounded-2xl border border-white/10 bg-[#140F24] px-4 py-3 text-[#F5F3F7] placeholder-[#B8B0C4] transition focus:border-[#8B5CF6] focus:outline-none"
                   placeholder="Your name"
                 />
               </div>
 
               {/* Email Field */}
               <div>
-                <label className="block text-gray-900 dark:text-white font-semibold mb-2">Email</label>
+                <label className="mb-2 block font-semibold text-[#F5F3F7]">Email</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white dark:bg-black/30 border border-accent-300 dark:border-accent-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-accent-500 dark:focus:border-accent-400 transition"
+                  className="w-full rounded-2xl border border-white/10 bg-[#140F24] px-4 py-3 text-[#F5F3F7] placeholder-[#B8B0C4] transition focus:border-[#8B5CF6] focus:outline-none"
                   placeholder="your.email@example.com"
                 />
               </div>
 
               {/* Subject Field */}
               <div>
-                <label className="block text-gray-900 dark:text-white font-semibold mb-2">Subject</label>
+                <label className="mb-2 block font-semibold text-[#F5F3F7]">Subject</label>
                 <input
                   type="text"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white dark:bg-black/30 border border-accent-300 dark:border-accent-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-accent-500 dark:focus:border-accent-400 transition"
+                  className="w-full rounded-2xl border border-white/10 bg-[#140F24] px-4 py-3 text-[#F5F3F7] placeholder-[#B8B0C4] transition focus:border-[#8B5CF6] focus:outline-none"
                   placeholder="What's this about?"
                 />
               </div>
 
               {/* Message Field */}
               <div>
-                <label className="block text-gray-900 dark:text-white font-semibold mb-2">Message</label>
+                <label className="mb-2 block font-semibold text-[#F5F3F7]">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-3 bg-white dark:bg-black/30 border border-accent-300 dark:border-accent-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-accent-500 dark:focus:border-accent-400 transition resize-none"
+                  className="w-full resize-none rounded-2xl border border-white/10 bg-[#140F24] px-4 py-3 text-[#F5F3F7] placeholder-[#B8B0C4] transition focus:border-[#8B5CF6] focus:outline-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
@@ -256,7 +248,7 @@ export default function ContactPage() {
                 disabled={loading}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full px-12 py-4 bg-accent-600 dark:bg-accent-500 text-white rounded-lg font-bold text-lg hover:bg-accent-700 dark:hover:bg-accent-600 transition cursor-pointer shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full rounded-full bg-gradient-to-r from-[#7C3AED] via-[#A78BFA] to-[#F59E0B] px-12 py-3.5 text-lg font-semibold text-white shadow-[0_0_35px_rgba(139,92,246,0.25)] transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {loading ? "Sending..." : "Send Message →"}
               </motion.button>
@@ -270,15 +262,15 @@ export default function ContactPage() {
             transition={{ delay: 0.7 }}
             className="text-center"
           >
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
+            <p className="mb-4 text-[#B8B0C4]">
               Prefer to reach out directly?
             </p>
-            <div className="flex justify-center gap-4 flex-wrap">
+            <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="https://www.instagram.com/studioby_aamna/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-accent-100 dark:bg-accent-950/40 border border-accent-300 dark:border-accent-700 text-accent-700 dark:text-accent-300 rounded-lg font-medium hover:bg-accent-200 dark:hover:bg-accent-900/50 transition"
+                className="rounded-full border border-white/10 bg-white/10 px-5 py-2.5 font-medium text-[#D8C7FF] transition hover:bg-white/15"
               >
                 DM on Instagram
               </a>
@@ -286,12 +278,16 @@ export default function ContactPage() {
                 href="https://www.linkedin.com/in/amna-awan-2608sam"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-accent-100 dark:bg-accent-950/40 border border-accent-300 dark:border-accent-700 text-accent-700 dark:text-accent-300 rounded-lg font-medium hover:bg-accent-200 dark:hover:bg-accent-900/50 transition"
+                className="rounded-full border border-white/10 bg-white/10 px-5 py-2.5 font-medium text-[#D8C7FF] transition hover:bg-white/15"
               >
                 Connect on LinkedIn
               </a>
             </div>
           </motion.div>
+        </div>
+
+        <div className="mt-16 border-t border-white/10 pt-8 text-center text-sm text-[#B8B0C4]">
+          © {new Date().getFullYear()} Bee&apos;sHive. All rights reserved.
         </div>
       </div>
     </div>

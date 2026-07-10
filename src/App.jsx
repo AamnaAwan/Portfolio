@@ -33,9 +33,9 @@ export default function App() {
   }, [darkMode]);
 
   return (
-    <div className="bg-white dark:bg-slate-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <div className="bg-[#120E1E] text-[#F5F3F7] transition-colors duration-300 dark:bg-[#120E1E] dark:text-[#F5F3F7]">
       <CursorGlow />
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Navbar />
 
       <Routes>
         <Route
