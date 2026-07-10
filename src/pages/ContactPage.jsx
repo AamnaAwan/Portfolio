@@ -4,15 +4,12 @@ import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
 // Initialize EmailJS
-// TODO: Replace with your actual EmailJS credentials from https://www.emailjs.com
-const EMAILJS_SERVICE_ID = "service_your_service_id";
-const EMAILJS_TEMPLATE_ID = "template_your_template_id";
-const EMAILJS_PUBLIC_KEY = "your_public_key";
+const EMAILJS_SERVICE_ID = "service_o57l049";
+const EMAILJS_TEMPLATE_ID = "template_5hhzw0z";
+const EMAILJS_PUBLIC_KEY = "ruHrkoIfXVed8FsgctaSM";
 
-// Initialize EmailJS if credentials are set
-if (EMAILJS_SERVICE_ID !== "service_your_service_id") {
-  emailjs.init(EMAILJS_PUBLIC_KEY);
-}
+// Initialize EmailJS
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -66,17 +63,12 @@ export default function ContactPage() {
     setErrorMessage("");
 
     try {
-      // Check if EmailJS is properly configured
-      if (EMAILJS_SERVICE_ID === "service_your_service_id") {
-        throw new Error("EmailJS not configured. Please update credentials in ContactPage.jsx");
-      }
-
       // Send email via EmailJS
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
-          to_email: "your-email@example.com", // Replace with your email
+          to_email: "awanaamna74@gmail.com", // Replace with your email
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject || "Portfolio Contact Form",
