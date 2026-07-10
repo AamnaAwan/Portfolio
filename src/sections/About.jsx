@@ -39,12 +39,6 @@ const expertise = [
   }
 ];
 
-const stats = [
-  { icon: "🎯", number: "Real-World", label: "Products Built" },
-  { icon: "🐛", number: "Production", label: "Issues Debugged" },
-  { icon: "✨", number: "Polished", label: "UI/UX Focus" },
-];
-
 export default function About() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -88,37 +82,14 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="mb-20"
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Frontend-Focused Full Stack Developer
-          </h3>
-          <div className="space-y-4 text-lg md:text-lg text-gray-800 dark:text-gray-200 leading-relaxed">
+          <div className="space-y-4 text-lg text-gray-800 dark:text-gray-200 leading-relaxed">
             <p>
-              I didn't learn development by just watching tutorials — I learned it by <span className="text-accent-600 dark:text-accent-400 font-semibold">building real products</span>. Failures taught me more than success ever could. Debugging broken deployments, fixing API errors, handling database issues — that's where real learning happens.
+              I learned development by <span className="text-accent-600 dark:text-accent-400 font-semibold">building real products</span> — debugging broken deployments, fixing API errors, handling production issues. That's where real learning happens.
             </p>
             <p>
-              I create <span className="text-accent-600 dark:text-accent-400 font-semibold">polished, interactive interfaces</span> with smooth animations and thoughtful details. On the backend, I work with Firebase to handle real data, authentication, and app logic end-to-end.
+              I create <span className="text-accent-600 dark:text-accent-400 font-semibold">polished, interactive interfaces</span> with smooth animations, paired with robust backend work using Firebase and Node.js. Full-stack end-to-end.
             </p>
           </div>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          className="grid grid-cols-3 gap-6 mb-20"
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="text-center p-6 bg-gradient-to-br from-accent-100 dark:from-accent-900/30 to-accent-50 dark:to-accent-950/20 rounded-lg border border-accent-200 dark:border-accent-800 hover:border-accent-400 dark:hover:border-accent-600 transition"
-            >
-              <p className="text-5xl mb-3">{stat.icon}</p>
-              <p className="text-xl md:text-2xl font-bold text-accent-700 dark:text-accent-300 mb-2">{stat.number}</p>
-              <p className="text-gray-700 dark:text-gray-300 font-medium">{stat.label}</p>
-            </motion.div>
-          ))}
         </motion.div>
 
         {/* Expertise Grid */}
@@ -158,65 +129,6 @@ export default function About() {
             ))}
           </motion.div>
         </div>
-
-        {/* Key Strengths */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-r from-accent-100 dark:from-accent-900/30 to-accent-50 dark:to-accent-950/20 border border-accent-300 dark:border-accent-700 rounded-xl p-8"
-        >
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
-            <span>⭐</span> What Sets Me Apart
-          </h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <span className="text-green-600 dark:text-green-400 text-xl font-bold">✓</span>
-                <div>
-                  <p className="font-semibold text-gray-900 dark:text-white">Production-Ready Thinking</p>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">I don't just build features — I build systems that work in production</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-green-600 dark:text-green-400 text-xl font-bold">✓</span>
-                <div>
-                  <p className="font-semibold text-gray-900 dark:text-white">Debugging Skills</p>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">Real experience fixing deployment bugs and backend connection errors</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-green-600 dark:text-green-400 text-xl font-bold">✓</span>
-                <div>
-                  <p className="font-semibold text-gray-900 dark:text-white">Polished UI/UX</p>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">Smooth animations and micro-interactions that delight users</p>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <span className="text-green-600 dark:text-green-400 text-xl font-bold">✓</span>
-                <div>
-                  <p className="font-semibold text-gray-900 dark:text-white">Full Stack Capability</p>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">Handle frontend, backend, and deployment — end-to-end solutions</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-green-600 dark:text-green-400 text-xl font-bold">✓</span>
-                <div>
-                  <p className="font-semibold text-gray-900 dark:text-white">Problem Solver</p>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">Comfortable tackling unfamiliar errors and finding solutions</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-green-600 dark:text-green-400 text-xl font-bold">✓</span>
-                <div>
-                  <p className="font-semibold text-gray-900 dark:text-white">Continuous Learner</p>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">Always exploring new technologies and best practices</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

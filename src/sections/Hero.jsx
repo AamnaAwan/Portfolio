@@ -106,28 +106,6 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* Expertise Highlights */}
-        <motion.div
-          variants={itemVariants}
-          className="grid md:grid-cols-3 gap-4 my-12 max-w-2xl mx-auto"
-        >
-          {[
-            { icon: "🎯", title: "Real Products", desc: "Live solutions in production" },
-            { icon: "🐛", title: "Debugging", desc: "Production-ready confidence" },
-            { icon: "✨", title: "Polish", desc: "Smooth, intentional design" }
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              variants={itemVariants}
-              className="p-4 rounded-lg bg-accent-50/50 dark:bg-accent-950/20 border border-accent-200 dark:border-accent-800 hover:border-accent-300 dark:hover:border-accent-700 transition"
-            >
-              <p className="text-2xl mb-2">{item.icon}</p>
-              <p className="font-semibold text-gray-900 dark:text-white text-sm">{item.title}</p>
-              <p className="text-xs text-gray-700 dark:text-gray-400 mt-1">{item.desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-
         <motion.div
           variants={itemVariants}
           className="flex flex-col sm:flex-row gap-4 justify-center mt-12"
