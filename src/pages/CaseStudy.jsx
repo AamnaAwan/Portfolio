@@ -147,12 +147,12 @@ export default function CaseStudy() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="min-h-screen px-4 md:px-10 py-10 bg-white dark:bg-[#0F0F0F]"
+        className="min-h-screen px-4 md:px-10 py-10 bg-white dark:bg-slate-900"
       >
         <div className="max-w-3xl mx-auto">
           <button
             onClick={() => navigate("/")}
-            className="mb-6 px-4 py-2 text-purple-700 dark:text-purple-400 hover:text-purple-900 dark:hover:text-purple-300 transition"
+            className="mb-6 px-4 py-2 text-accent-700 dark:text-accent-400 hover:text-accent-900 dark:hover:text-accent-300 transition"
           >
             ← Back
           </button>
@@ -166,12 +166,12 @@ export default function CaseStudy() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen px-4 md:px-10 py-10 bg-white dark:bg-[#0F0F0F]"
+      className="min-h-screen px-4 md:px-10 py-10 bg-white dark:bg-slate-900"
     >
       <div className="max-w-4xl mx-auto">
         <button
           onClick={() => navigate("/")}
-          className="mb-8 px-4 py-2 text-purple-700 dark:text-purple-400 hover:text-purple-900 dark:hover:text-purple-300 transition font-medium"
+          className="mb-8 px-4 py-2 text-accent-700 dark:text-accent-400 hover:text-accent-900 dark:hover:text-accent-300 transition font-medium"
         >
           ← Back to Projects
         </button>
@@ -188,7 +188,7 @@ export default function CaseStudy() {
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2">
                 {study.title}
               </h1>
-              <h2 className="text-2xl md:text-3xl text-purple-600 dark:text-purple-400 font-semibold">
+              <h2 className="text-2xl md:text-3xl text-accent-600 dark:text-accent-400 font-semibold">
                 {study.subtitle}
               </h2>
             </div>
@@ -224,9 +224,9 @@ export default function CaseStudy() {
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="mb-12 bg-purple-50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800 rounded-xl p-6"
+          className="mb-12 bg-accent-50 dark:bg-accent-950/20 border border-accent-200 dark:border-accent-800 rounded-xl p-6"
         >
-          <h3 className="text-2xl font-bold text-purple-900 dark:text-purple-200 mb-3">🔍 Root Cause</h3>
+          <h3 className="text-2xl font-bold text-accent-900 dark:text-accent-200 mb-3">🔍 Root Cause</h3>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
             {study.rootCause}
           </p>
@@ -245,7 +245,7 @@ export default function CaseStudy() {
           <ol className="space-y-3">
             {study.solution.steps.map((step, idx) => (
               <li key={idx} className="flex gap-3 text-gray-700 dark:text-gray-300">
-                <span className="text-purple-600 dark:text-purple-400 font-bold text-lg min-w-8">{idx + 1}.</span>
+                <span className="text-accent-600 dark:text-accent-400 font-bold text-lg min-w-8">{idx + 1}.</span>
                 <span className="text-lg">{step}</span>
               </li>
             ))}
@@ -286,7 +286,7 @@ export default function CaseStudy() {
             {study.techStack.map((tech) => (
               <span
                 key={tech}
-                className="px-4 py-2 bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300 rounded-full font-semibold border border-purple-300 dark:border-purple-600"
+                className="px-4 py-2 bg-accent-100 dark:bg-accent-900/40 text-accent-800 dark:text-accent-300 rounded-full font-semibold border border-accent-300 dark:border-accent-600"
               >
                 {tech}
               </span>
@@ -298,9 +298,9 @@ export default function CaseStudy() {
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="mb-12 bg-gradient-to-br from-purple-100 dark:from-purple-900/30 to-purple-50 dark:to-purple-950/20 border border-purple-300 dark:border-purple-700 rounded-xl p-6"
+          className="mb-12 bg-gradient-to-br from-purple-100 dark:from-purple-900/30 to-purple-50 dark:to-purple-950/20 border border-accent-300 dark:border-purple-700 rounded-xl p-6"
         >
-          <h3 className="text-2xl font-bold text-purple-900 dark:text-purple-200 mb-3 flex items-center gap-3">
+          <h3 className="text-2xl font-bold text-accent-900 dark:text-accent-200 mb-3 flex items-center gap-3">
             <span>💡</span> Key Learning
           </h3>
           <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed italic">

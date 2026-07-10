@@ -7,15 +7,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#A78BFA",
-        "primary-dark": "#7C3AED",
-        "primary-bright": "#C4B5FD",
-        darkBg: "#0F0F0F",
-        lightBg: "#FFFFFF",
+        // Premium purple accent
+        accent: {
+          50: "#FAF7FF",
+          100: "#F3ECFF",
+          200: "#E9D9FF",
+          300: "#D4B5FF",
+          400: "#B794F6",
+          500: "#9D6EE8",
+          600: "#7C3AED",
+          700: "#6D28D9",
+          800: "#5B21B6",
+          900: "#3F0F83",
+        },
+        slate: {
+          50: "#F9FAFB",
+          900: "#0F172A",
+        },
       },
-      backgroundColor: {
-        dark: "#0F0F0F",
-        light: "#FFFFFF",
+      fontSize: {
+        display: ["3.5rem", { lineHeight: "1.2", fontWeight: "700" }],
+        "display-md": ["2.5rem", { lineHeight: "1.2", fontWeight: "700" }],
       },
     },
   },

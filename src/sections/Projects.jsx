@@ -63,7 +63,7 @@ export default function Projects() {
   const navigate = useNavigate();
 
   return (
-    <section id="projects" className="py-32 px-4 md:px-10 bg-white dark:bg-[#0F0F0F]">
+    <section id="projects" className="py-32 px-4 md:px-10 bg-white dark:bg-slate-900">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -72,11 +72,11 @@ export default function Projects() {
           className="mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
-            Featured <span className="text-purple-600 dark:text-purple-400">Projects</span>
+            Featured <span className="text-accent-600 dark:text-accent-400">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-purple-600 dark:bg-purple-400 rounded-full"></div>
+          <div className="w-20 h-1 bg-accent-600 dark:bg-accent-400 rounded-full"></div>
           <p className="text-gray-700 dark:text-gray-300 mt-4 text-lg">
-            Showcasing my recent work and expertise
+            Real products, real impact
           </p>
         </motion.div>
 
@@ -94,23 +94,23 @@ export default function Projects() {
               onClick={() => navigate(`/project/${project.id}`)}
               className="group cursor-pointer"
             >
-              <div className="relative bg-gradient-to-br from-purple-100 dark:from-purple-950/20 via-transparent to-purple-50 dark:to-purple-950/10 border border-purple-300 dark:border-purple-800 rounded-2xl p-8 hover:border-purple-500 dark:hover:border-purple-500 transition duration-300 overflow-hidden">
+              <div className="relative bg-gradient-to-br from-accent-100 dark:from-accent-950/20 via-transparent to-accent-50 dark:to-accent-950/10 border border-accent-300 dark:border-accent-800 rounded-2xl p-8 hover:border-accent-500 dark:hover:border-accent-500 transition duration-300 overflow-hidden">
                 {/* Animated background */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
-                  className="absolute inset-0 bg-gradient-to-br from-purple-200/30 dark:from-purple-600/20 to-transparent"
+                  className="absolute inset-0 bg-gradient-to-br from-accent-200/30 dark:from-accent-600/20 to-transparent"
                 />
 
                 <div className="relative z-10">
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-5xl">{project.icon}</span>
-                    <span className="px-3 py-1 bg-purple-200 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 text-sm font-semibold rounded-full">
+                    <span className="px-3 py-1 bg-accent-200 dark:bg-accent-900/50 text-accent-800 dark:text-accent-200 text-sm font-semibold rounded-full">
                       {project.category}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-purple-700 dark:group-hover:text-purple-400 transition">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-accent-700 dark:group-hover:text-accent-400 transition">
                     {project.title}
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
@@ -121,7 +121,7 @@ export default function Projects() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-200 text-sm rounded-lg border border-purple-300 dark:border-purple-700"
+                        className="px-3 py-1 bg-accent-100 dark:bg-accent-900/40 text-accent-800 dark:text-accent-200 text-sm rounded-lg border border-accent-300 dark:border-accent-700"
                       >
                         {tag}
                       </span>
@@ -131,7 +131,7 @@ export default function Projects() {
                   <div className="flex flex-col gap-4">
                     <motion.div
                       whileHover={{ x: 5 }}
-                      className="flex items-center gap-2 text-purple-700 dark:text-purple-400 font-semibold text-lg"
+                      className="flex items-center gap-2 text-accent-700 dark:text-accent-400 font-semibold text-lg"
                     >
                       View Case Study
                       <span className="text-2xl">→</span>
@@ -145,7 +145,7 @@ export default function Projects() {
                         onClick={(e) => e.stopPropagation()}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-block px-4 py-2 bg-purple-600 dark:bg-purple-500 text-white rounded-lg font-semibold hover:bg-purple-700 dark:hover:bg-purple-600 transition"
+                        className="inline-block px-4 py-2 bg-accent-600 dark:bg-accent-500 text-white rounded-lg font-semibold hover:bg-accent-700 dark:hover:bg-accent-600 transition"
                       >
                         Visit Site →
                       </motion.a>

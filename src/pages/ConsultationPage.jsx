@@ -101,13 +101,13 @@ export default function ConsultationPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0F0F0F] text-gray-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-slate-900 text-gray-900 dark:text-white transition-colors duration-300">
       {/* Back button */}
       <motion.button
         onClick={() => navigate("/")}
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="fixed top-20 left-4 md:left-10 px-6 py-2 text-purple-700 dark:text-purple-400 hover:text-purple-900 dark:hover:text-purple-300 font-semibold transition z-40"
+        className="fixed top-20 left-4 md:left-10 px-6 py-2 text-accent-700 dark:text-accent-400 hover:text-accent-900 dark:hover:text-accent-300 font-semibold transition z-40"
       >
         ← Back to Home
       </motion.button>
@@ -117,7 +117,7 @@ export default function ConsultationPage() {
         <motion.div
           animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
           transition={{ duration: 15, repeat: Infinity }}
-          className="absolute top-1/4 right-0 w-96 h-96 bg-purple-200/20 dark:bg-purple-500/15 rounded-full blur-3xl"
+          className="absolute top-1/4 right-0 w-96 h-96 bg-purple-200/20 dark:bg-accent-500/15 rounded-full blur-3xl"
         />
         <motion.div
           animate={{ x: [0, -50, 0], y: [0, 30, 0] }}
@@ -135,7 +135,7 @@ export default function ConsultationPage() {
           className="text-center mb-16 px-4"
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Get <span className="text-purple-600 dark:text-purple-400">Expert Advice</span>
+            Get <span className="text-accent-600 dark:text-accent-400">Expert Advice</span>
           </h1>
           <div className="w-20 h-1 bg-purple-600 dark:bg-purple-400 rounded-full mx-auto"></div>
           <p className="text-xl text-gray-700 dark:text-gray-300 mt-6 max-w-2xl mx-auto">
@@ -159,8 +159,8 @@ export default function ConsultationPage() {
                 onClick={() => setSelectedTopic(topic.id)}
                 className={`cursor-pointer p-6 rounded-2xl border-2 transition duration-300 ${
                   selectedTopic === topic.id
-                    ? "border-purple-600 dark:border-purple-400 bg-purple-100 dark:bg-purple-950/40"
-                    : "border-purple-300 dark:border-purple-800 bg-purple-50 dark:bg-purple-950/20 hover:border-purple-400 dark:hover:border-purple-600"
+                    ? "border-accent-600 dark:border-purple-400 bg-accent-100 dark:bg-accent-950/40"
+                    : "border-accent-300 dark:border-accent-800 bg-accent-50 dark:bg-accent-950/20 hover:border-purple-400 dark:hover:border-accent-600"
                 }`}
               >
                 <p className="text-5xl mb-3">{topic.icon}</p>
@@ -171,7 +171,7 @@ export default function ConsultationPage() {
                   {topic.description}
                 </p>
                 {selectedTopic === topic.id && (
-                  <div className="mt-4 inline-block px-3 py-1 bg-purple-600 dark:bg-purple-500 text-white rounded-full text-sm font-semibold">
+                  <div className="mt-4 inline-block px-3 py-1 bg-purple-600 dark:bg-accent-500 text-white rounded-full text-sm font-semibold">
                     ✓ Selected
                   </div>
                 )}
@@ -184,7 +184,7 @@ export default function ConsultationPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-linear-to-br from-purple-50 dark:from-purple-950/30 to-white dark:to-[#0F0F0F] border border-purple-300 dark:border-purple-800 rounded-3xl p-8 md:p-12 max-w-3xl mx-auto"
+            className="bg-linear-to-br from-purple-50 dark:from-purple-950/30 to-white dark:to-[#0F0F0F] border border-accent-300 dark:border-accent-800 rounded-3xl p-8 md:p-12 max-w-3xl mx-auto"
           >
             <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
               {selectedTopic
@@ -209,7 +209,7 @@ export default function ConsultationPage() {
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder="John Doe"
-                    className="w-full px-4 py-3 bg-white dark:bg-black/30 border border-purple-300 dark:border-purple-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                    className="w-full px-4 py-3 bg-white dark:bg-black/30 border border-accent-300 dark:border-accent-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                   />
                 </motion.div>
 
@@ -228,7 +228,7 @@ export default function ConsultationPage() {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="john@example.com"
-                    className="w-full px-4 py-3 bg-white dark:bg-black/30 border border-purple-300 dark:border-purple-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                    className="w-full px-4 py-3 bg-white dark:bg-black/30 border border-accent-300 dark:border-accent-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                   />
                 </motion.div>
 
@@ -247,7 +247,7 @@ export default function ConsultationPage() {
                     onChange={handleInputChange}
                     placeholder="Describe your query or problem in detail..."
                     rows="6"
-                    className="w-full px-4 py-3 bg-white dark:bg-black/30 border border-purple-300 dark:border-purple-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 resize-none"
+                    className="w-full px-4 py-3 bg-white dark:bg-black/30 border border-accent-300 dark:border-accent-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 resize-none"
                   ></textarea>
                 </motion.div>
 
@@ -263,7 +263,7 @@ export default function ConsultationPage() {
                     disabled={submitted}
                     whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(168, 123, 255, 0.4)" }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex-1 px-8 py-4 bg-purple-600 dark:bg-purple-500 text-white rounded-lg font-bold text-lg hover:bg-purple-700 dark:hover:bg-purple-600 transition disabled:opacity-50"
+                    className="flex-1 px-8 py-4 bg-purple-600 dark:bg-accent-500 text-white rounded-lg font-bold text-lg hover:bg-purple-700 dark:hover:bg-purple-600 transition disabled:opacity-50"
                   >
                     {submitted ? "Sent! ✓" : "Send Request →"}
                   </motion.button>
@@ -273,7 +273,7 @@ export default function ConsultationPage() {
                       setSelectedTopic("");
                       setFormData({ name: "", email: "", message: "" });
                     }}
-                    className="px-6 py-4 border-2 border-purple-300 dark:border-purple-800 text-purple-700 dark:text-purple-300 rounded-lg font-semibold hover:bg-purple-50 dark:hover:bg-purple-950/30 transition"
+                    className="px-6 py-4 border-2 border-accent-300 dark:border-accent-800 text-accent-700 dark:text-accent-300 rounded-lg font-semibold hover:bg-accent-50 dark:hover:bg-accent-950/30 transition"
                   >
                     Reset
                   </motion.button>
@@ -297,13 +297,13 @@ export default function ConsultationPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mt-16 bg-white dark:bg-black/20 border border-purple-200 dark:border-purple-800 rounded-2xl p-8 md:p-12"
+            className="mt-16 bg-white dark:bg-black/20 border border-accent-200 dark:border-accent-800 rounded-2xl p-8 md:p-12"
           >
             <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">How It Works</h3>
             <div className="grid md:grid-cols-3 gap-8">
               <div>
                 <div className="flex items-start gap-4">
-                  <span className="text-4xl font-bold text-purple-600 dark:text-purple-400">1</span>
+                  <span className="text-4xl font-bold text-accent-600 dark:text-accent-400">1</span>
                   <div>
                     <h4 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Select Topic</h4>
                     <p className="text-gray-700 dark:text-gray-300">Choose the type of consultation you need.</p>
@@ -312,7 +312,7 @@ export default function ConsultationPage() {
               </div>
               <div>
                 <div className="flex items-start gap-4">
-                  <span className="text-4xl font-bold text-purple-600 dark:text-purple-400">2</span>
+                  <span className="text-4xl font-bold text-accent-600 dark:text-accent-400">2</span>
                   <div>
                     <h4 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Fill Details</h4>
                     <p className="text-gray-700 dark:text-gray-300">Provide your information and describe your query.</p>
@@ -321,7 +321,7 @@ export default function ConsultationPage() {
               </div>
               <div>
                 <div className="flex items-start gap-4">
-                  <span className="text-4xl font-bold text-purple-600 dark:text-purple-400">3</span>
+                  <span className="text-4xl font-bold text-accent-600 dark:text-accent-400">3</span>
                   <div>
                     <h4 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Get Help</h4>
                     <p className="text-gray-700 dark:text-gray-300">I'll review and get back to you promptly.</p>

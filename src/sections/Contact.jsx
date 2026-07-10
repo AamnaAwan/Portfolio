@@ -32,13 +32,13 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-32 px-4 md:px-10 relative overflow-hidden bg-white dark:bg-[#0F0F0F]">
+    <section id="contact" className="py-32 px-4 md:px-10 relative overflow-hidden bg-white dark:bg-slate-900">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <motion.div
           animate={{ x: [0, 50, 0] }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-1/2 right-0 w-96 h-96 bg-purple-200/20 dark:bg-purple-500/15 rounded-full blur-3xl"
+          className="absolute top-1/2 right-0 w-96 h-96 bg-accent-200/20 dark:bg-accent-500/15 rounded-full blur-3xl"
         />
       </div>
 
@@ -50,11 +50,11 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
-            Let's Work <span className="text-purple-600 dark:text-purple-400">Together</span>
+            Let's Work <span className="text-accent-600 dark:text-accent-400">Together</span>
           </h2>
-          <div className="w-20 h-1 bg-purple-600 dark:bg-purple-400 rounded-full mx-auto"></div>
+          <div className="w-20 h-1 bg-accent-600 dark:bg-accent-400 rounded-full mx-auto"></div>
           <p className="text-gray-700 dark:text-gray-300 mt-6 text-xl max-w-2xl mx-auto">
-            Have an exciting project in mind? I'd love to hear about it. Let's create something amazing together!
+            Got a project in mind? Let's build something great.
           </p>
         </motion.div>
 
@@ -79,9 +79,9 @@ export default function Contact() {
                   whileHover={{ scale: 1.05, y: -10 }}
                   className="group text-center block"
                 >
-                  <div className="bg-purple-50 dark:bg-purple-950/20 border border-purple-300 dark:border-purple-800 rounded-xl p-8 hover:border-purple-500 dark:hover:border-purple-500 hover:bg-purple-100 dark:hover:bg-purple-900/40 transition duration-300">
+                  <div className="bg-accent-50 dark:bg-accent-950/20 border border-accent-300 dark:border-accent-800 rounded-xl p-8 hover:border-accent-500 dark:hover:border-accent-500 hover:bg-accent-100 dark:hover:bg-accent-900/40 transition duration-300">
                     <p className="text-5xl mb-4">{method.icon}</p>
-                    <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-purple-700 dark:group-hover:text-purple-400 transition">
+                    <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-accent-700 dark:group-hover:text-accent-400 transition">
                       {method.label}
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition">
@@ -94,9 +94,9 @@ export default function Contact() {
                   whileHover={{ scale: 1.05, y: -10 }}
                   className="group text-center block"
                 >
-                  <div className="bg-gradient-to-br from-purple-100 dark:from-purple-900/40 to-purple-50 dark:to-purple-950/20 border border-purple-400 dark:border-purple-600 rounded-xl p-8 hover:border-purple-600 dark:hover:border-purple-500 hover:bg-purple-200 dark:hover:bg-purple-900/60 transition duration-300">
+                  <div className="bg-gradient-to-br from-accent-100 dark:from-accent-900/40 to-accent-50 dark:to-accent-950/20 border border-accent-400 dark:border-accent-600 rounded-xl p-8 hover:border-accent-600 dark:hover:border-accent-500 hover:bg-accent-200 dark:hover:bg-accent-900/60 transition duration-300">
                     <p className="text-5xl mb-4">{method.icon}</p>
-                    <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-purple-700 dark:group-hover:text-purple-400 transition">
+                    <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-accent-700 dark:group-hover:text-accent-400 transition">
                       {method.label}
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition font-semibold">
@@ -113,7 +113,7 @@ export default function Contact() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="bg-gradient-to-r from-purple-200 dark:from-purple-950/40 to-purple-100 dark:to-purple-900/20 border border-purple-400 dark:border-purple-800 rounded-2xl p-12 text-center"
+          className="bg-gradient-to-r from-purple-200 dark:from-purple-950/40 to-purple-100 dark:to-purple-900/20 border border-accent-400 dark:border-accent-800 rounded-2xl p-12 text-center"
         >
           <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
             Ready to start your next project?
@@ -132,7 +132,7 @@ export default function Contact() {
               href="https://www.instagram.com/studioby_aamna/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-10 py-4 bg-purple-600 dark:bg-purple-500 text-white rounded-lg font-bold text-lg hover:bg-purple-700 dark:hover:bg-purple-600 transition cursor-pointer shadow-lg hover:shadow-xl"
+              className="inline-block px-10 py-4 bg-purple-600 dark:bg-accent-500 text-white rounded-lg font-bold text-lg hover:bg-purple-700 dark:hover:bg-purple-600 transition cursor-pointer shadow-lg hover:shadow-xl"
             >
               DM on Instagram →
             </a>

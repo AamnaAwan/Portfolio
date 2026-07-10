@@ -66,7 +66,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-32 px-4 md:px-10 bg-gradient-to-b from-white via-purple-50 dark:from-[#0F0F0F] dark:via-purple-950/10 to-white dark:to-[#0F0F0F]">
+    <section id="about" className="py-32 px-4 md:px-10 bg-gradient-to-b from-white via-accent-50/50 dark:from-slate-900 dark:via-accent-950/5 to-white dark:to-slate-900">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -76,9 +76,9 @@ export default function About() {
           className="mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
-            About <span className="text-purple-600 dark:text-purple-400">Me</span>
+            About <span className="text-accent-600 dark:text-accent-400">Me</span>
           </h2>
-          <div className="w-20 h-1 bg-purple-600 dark:bg-purple-400 rounded-full"></div>
+          <div className="w-20 h-1 bg-accent-600 dark:bg-accent-400 rounded-full"></div>
         </motion.div>
 
         {/* Bio Section */}
@@ -93,16 +93,10 @@ export default function About() {
           </h3>
           <div className="space-y-4 text-lg md:text-lg text-gray-800 dark:text-gray-200 leading-relaxed">
             <p>
-              I didn't learn development by just watching tutorials — I learned it by <span className="text-purple-600 dark:text-purple-400 font-semibold">building things that actually broke</span>. Most of what I know comes from working on real projects, where I had to figure out everything from UI design to deployment issues on my own.
+              I didn't learn development by just watching tutorials — I learned it by <span className="text-accent-600 dark:text-accent-400 font-semibold">building real products</span>. Failures taught me more than success ever could. Debugging broken deployments, fixing API errors, handling database issues — that's where real learning happens.
             </p>
             <p>
-              Things didn't work the first time (or the fifth), but that's where I got better — debugging errors, fixing broken builds, and understanding how things actually run in production. Each failure taught me something I couldn't learn from any tutorial.
-            </p>
-            <p>
-              I enjoy creating <span className="text-purple-600 dark:text-purple-400 font-semibold">clean, interactive interfaces</span> and adding small details like animations and smooth transitions that make a product feel alive. At the same time, I've worked with backend tools like Firebase to handle real data, authentication, and app logic.
-            </p>
-            <p>
-              Right now, I'm focused on improving my full-stack skills and building projects that are not just functional, but feel <span className="text-purple-600 dark:text-purple-400 font-semibold">polished and real</span> to use.
+              I create <span className="text-accent-600 dark:text-accent-400 font-semibold">polished, interactive interfaces</span> with smooth animations and thoughtful details. On the backend, I work with Firebase to handle real data, authentication, and app logic end-to-end.
             </p>
           </div>
         </motion.div>
@@ -118,10 +112,10 @@ export default function About() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="text-center p-6 bg-gradient-to-br from-purple-100 dark:from-purple-900/30 to-purple-50 dark:to-purple-950/20 rounded-lg border border-purple-200 dark:border-purple-800 hover:border-purple-400 dark:hover:border-purple-600 transition"
+              className="text-center p-6 bg-gradient-to-br from-accent-100 dark:from-accent-900/30 to-accent-50 dark:to-accent-950/20 rounded-lg border border-accent-200 dark:border-accent-800 hover:border-accent-400 dark:hover:border-accent-600 transition"
             >
               <p className="text-5xl mb-3">{stat.icon}</p>
-              <p className="text-xl md:text-2xl font-bold text-purple-700 dark:text-purple-300 mb-2">{stat.number}</p>
+              <p className="text-xl md:text-2xl font-bold text-accent-700 dark:text-accent-300 mb-2">{stat.number}</p>
               <p className="text-gray-700 dark:text-gray-300 font-medium">{stat.label}</p>
             </motion.div>
           ))}
@@ -141,7 +135,7 @@ export default function About() {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
-                className="bg-white dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800 rounded-xl p-6 hover:border-purple-500 dark:hover:border-purple-500 transition"
+                className="bg-white dark:bg-accent-950/20 border border-accent-200 dark:border-accent-800 rounded-xl p-6 hover:border-accent-500 dark:hover:border-accent-500 transition"
               >
                 <div className="flex items-start gap-4 mb-4">
                   <span className="text-4xl">{area.icon}</span>
@@ -154,7 +148,7 @@ export default function About() {
                   {area.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-200 rounded-full text-xs font-medium"
+                      className="px-3 py-1 bg-accent-100 dark:bg-accent-900/40 text-accent-800 dark:text-accent-200 rounded-full text-xs font-medium"
                     >
                       {skill}
                     </span>
@@ -169,7 +163,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-r from-purple-100 dark:from-purple-900/30 to-purple-50 dark:to-purple-950/20 border border-purple-300 dark:border-purple-700 rounded-xl p-8"
+          className="bg-gradient-to-r from-accent-100 dark:from-accent-900/30 to-accent-50 dark:to-accent-950/20 border border-accent-300 dark:border-accent-700 rounded-xl p-8"
         >
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
             <span>⭐</span> What Sets Me Apart

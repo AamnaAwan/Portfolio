@@ -33,7 +33,7 @@ export default function App() {
   }, [darkMode]);
 
   return (
-    <div className="bg-white dark:bg-[#0F0F0F] text-gray-900 dark:text-white transition-colors duration-300">
+    <div className="bg-white dark:bg-slate-900 text-gray-900 dark:text-white transition-colors duration-300">
       <CursorGlow />
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
