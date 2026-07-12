@@ -24,6 +24,7 @@ const itemVariants = {
 
 export default function ContactPage() {
   const navigate = useNavigate();
+  // Frontend and backend deploy separately. If the backend URL changes, update VITE_API_URL in the production env for the hosting site.
   const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [loading, setLoading] = useState(false);
@@ -82,13 +83,13 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#120E1E] text-[#F5F3F7] transition-colors duration-300">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#120E1E] text-[#F5F3F7] transition-colors duration-300">
       {/* Back button */}
       <motion.button
         onClick={() => navigate("/")}
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="fixed left-3 top-4 z-40 rounded-full border border-white/10 bg-[#140F24]/80 px-4 py-2 text-sm font-semibold text-[#F5F3F7] backdrop-blur transition hover:bg-[#1B1428] sm:left-4 sm:top-20 md:left-10"
+        className="fixed left-3 top-4 z-40 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/10 bg-[#140F24]/80 px-4 py-2 text-sm font-semibold text-[#F5F3F7] backdrop-blur transition hover:bg-[#1B1428] sm:left-4 sm:top-20 md:left-10"
       >
         ← Back to Home
       </motion.button>
@@ -98,7 +99,7 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-16 px-3 text-center sm:mb-20 sm:px-4"
+          className="mb-16 px-4 text-center sm:mb-20 sm:px-5"
         >
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.35em] text-[#D8C7FF] backdrop-blur">
             <span className="h-2.5 w-2.5 rounded-full bg-[#E8C468]" />
@@ -113,7 +114,7 @@ export default function ContactPage() {
           </p>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="mx-auto max-w-6xl px-4 sm:px-5">
           {/* Contact Methods */}
           <motion.div
             variants={containerVariants}
@@ -248,7 +249,7 @@ export default function ContactPage() {
                 disabled={loading}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full rounded-full bg-gradient-to-r from-[#7C3AED] via-[#A78BFA] to-[#F59E0B] px-12 py-3.5 text-lg font-semibold text-white shadow-[0_0_35px_rgba(139,92,246,0.25)] transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-50"
+                className="min-h-[44px] w-full rounded-full bg-gradient-to-r from-[#7C3AED] via-[#A78BFA] to-[#F59E0B] px-12 py-3.5 text-lg font-semibold text-white shadow-[0_0_35px_rgba(139,92,246,0.25)] transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {loading ? "Sending..." : "Send Message →"}
               </motion.button>

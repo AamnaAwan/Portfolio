@@ -1,16 +1,23 @@
-# React + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Deployment note
 
-Currently, two official plugins are available:
+The frontend and backend deploy separately.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- The Vite frontend is deployed via Firebase Hosting.
+- The contact form backend is deployed as a Firebase Cloud Function.
+- The production frontend reads the backend URL from .env.production via VITE_API_URL.
 
-## React Compiler
+If the backend URL changes, update VITE_API_URL in .env.production and redeploy the hosting site.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Backend deployment
 
-## Expanding the ESLint configuration
+1. Set the Gmail environment variables for the Firebase Functions project:
+   - GMAIL_USER
+   - GMAIL_APP_PASSWORD
+2. Deploy the functions:
+   - firebase deploy --only functions
+3. Deploy the frontend:
+   - npm run build
+   - firebase deploy --only hosting
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

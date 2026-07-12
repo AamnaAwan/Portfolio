@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 const expertise = [
   {
     title: "Frontend",
-    icon: "⚡",
     accent: "from-[#7C3AED] via-[#A78BFA] to-[#E9D5FF]",
     description: "Interfaces that feel premium and alive.",
     skills: ["React", "Tailwind", "Framer Motion", "Responsive UI"],
@@ -12,7 +11,6 @@ const expertise = [
   },
   {
     title: "Product Thinking",
-    icon: "🧠",
     accent: "from-[#D97706] via-[#F59E0B] to-[#FDE68A]",
     description: "Clear flows, thoughtful structure, better decisions.",
     skills: ["UX Patterns", "Interaction Design", "Conversion Flow", "Storytelling"],
@@ -21,7 +19,6 @@ const expertise = [
   },
   {
     title: "Backend",
-    icon: "☁️",
     accent: "from-[#0891B2] via-[#22D3EE] to-[#7C3AED]",
     description: "Reliable systems behind polished experiences.",
     skills: ["Firebase", "Node", "APIs", "Auth"],
@@ -30,7 +27,6 @@ const expertise = [
   },
   {
     title: "Performance",
-    icon: "🚀",
     accent: "from-[#0F766E] via-[#2DD4BF] to-[#A7F3D0]",
     description: "Fast, lean, and ready for real users.",
     skills: ["Optimization", "Build Fixes", "Debugging", "Launch Prep"],
@@ -60,7 +56,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.2),_transparent_60%)] px-3 py-16 sm:px-4 md:px-10 md:py-28">
+    <section id="about" className="overflow-x-hidden bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.2),_transparent_60%)] px-4 py-16 sm:px-5 md:px-10 md:py-28">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -143,14 +139,9 @@ export default function About() {
                 <div className="absolute -right-6 top-6 h-24 w-24 rounded-full bg-white/5 blur-3xl" />
                 <div className="relative">
                   <div className="mb-5 flex items-start justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${area.accent} text-xl shadow-[0_12px_30px_rgba(0,0,0,0.2)]`}>
-                        {area.icon}
-                      </div>
-                      <div>
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/45">Core strength</p>
-                        <h4 className="text-xl font-semibold text-[#F5F3F7]">{area.title}</h4>
-                      </div>
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/45">Core strength</p>
+                      <h4 className="text-xl font-semibold text-[#F5F3F7]">{area.title}</h4>
                     </div>
                     <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FDE68A]">
                       {area.feature}

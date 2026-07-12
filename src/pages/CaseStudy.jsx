@@ -179,7 +179,7 @@ export default function CaseStudy() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="min-h-screen bg-[#120E1E] px-4 py-10 md:px-10"
+        className="min-h-screen overflow-x-hidden bg-[#120E1E] px-4 py-10 sm:px-5 md:px-10"
       >
         <div className="mx-auto max-w-3xl">
           <button
@@ -203,7 +203,7 @@ export default function CaseStudy() {
       <div className="mx-auto max-w-5xl">
         <button
           onClick={() => navigate("/")}
-          className="mb-8 rounded-full border border-white/10 bg-white/5 px-4 py-2 font-medium text-[#E8C468] transition hover:bg-white/10"
+          className="mb-8 flex min-h-[44px] items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 font-medium text-[#E8C468] transition hover:bg-white/10"
         >
           ← Back to Projects
         </button>
@@ -213,13 +213,13 @@ export default function CaseStudy() {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="relative mb-6 flex flex-col gap-5 md:flex-row md:items-start md:justify-between"
+            className="relative mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"
           >
-            <div className="flex items-start gap-4">
-              <div className={`flex h-16 w-16 items-center justify-center rounded-2xl border ${study.accent.border} bg-[#140F24]/85 text-3xl shadow-[0_10px_30px_rgba(0,0,0,0.2)]`}>
+            <div className="flex flex-wrap items-start gap-3 sm:gap-4">
+              <div className={`flex h-14 w-14 items-center justify-center rounded-2xl border sm:h-16 sm:w-16 ${study.accent.border} bg-[#140F24]/85 text-2xl shadow-[0_10px_30px_rgba(0,0,0,0.2)] sm:text-3xl`}>
                 {study.icon}
               </div>
-              <div>
+              <div className="min-w-0 flex-1">
                 <p className={`mb-2 text-sm font-semibold uppercase tracking-[0.3em] ${study.accent.highlight}`}>Case Study</p>
                 <h1 className="mb-2 text-3xl font-bold text-[#F5F3F7] sm:text-4xl md:text-5xl">
                   {study.title}
@@ -229,7 +229,7 @@ export default function CaseStudy() {
                 </h2>
               </div>
             </div>
-            <div className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.25em] ${study.accent.badge}`}>
+            <div className={`self-start rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.25em] ${study.accent.badge}`}>
               Product build
             </div>
           </motion.div>

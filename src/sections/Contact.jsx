@@ -5,7 +5,7 @@ export default function Contact() {
   const navigate = useNavigate();
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-[#120E1E] px-3 py-16 sm:px-4 md:px-10 md:py-28">
+    <section id="contact" className="relative overflow-x-hidden bg-[#120E1E] px-4 py-16 sm:px-5 md:px-10 md:py-28">
       <div className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,_rgba(23,17,38,0.98),_rgba(18,14,30,0.96))] px-5 py-12 text-center shadow-[0_24px_70px_-30px_rgba(139,92,246,0.4)] sm:px-8 sm:py-16 md:px-12">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.16),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(124,58,237,0.18),_transparent_36%)]" />
         <motion.div
@@ -30,7 +30,7 @@ export default function Contact() {
             onClick={() => navigate("/contact")}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#7C3AED] via-[#A78BFA] to-[#F59E0B] px-8 py-3.5 text-lg font-semibold text-white shadow-[0_0_45px_rgba(139,92,246,0.28)] transition hover:shadow-[0_0_55px_rgba(245,158,11,0.28)]"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-gradient-to-r from-[#7C3AED] via-[#A78BFA] to-[#F59E0B] px-8 py-3.5 text-lg font-semibold text-white shadow-[0_0_45px_rgba(139,92,246,0.28)] transition hover:shadow-[0_0_55px_rgba(245,158,11,0.28)]"
           >
             Start a conversation
             <span className="ml-2 text-xl">→</span>

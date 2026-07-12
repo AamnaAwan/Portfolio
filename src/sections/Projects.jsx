@@ -158,7 +158,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="bg-[#120E1E] px-3 py-16 sm:px-4 md:px-10 md:py-28">
+    <section id="projects" className="overflow-x-hidden bg-[#120E1E] px-4 py-16 sm:px-5 md:px-10 md:py-28">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -191,16 +191,16 @@ export default function Projects() {
               onClick={() => openProject(project)}
               className="group text-left"
             >
-              <div className={`relative overflow-hidden rounded-[2rem] border bg-gradient-to-br ${project.accent.shell} p-4 ${project.accent.border} ${project.accent.glow} transition duration-300 hover:border-white/20`}>
-                <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start">
-                  <div className={`flex h-28 w-full max-w-[180px] shrink-0 items-center justify-center rounded-[1.3rem] border ${project.accent.border} bg-[#140F24]/90 p-2 shadow-[0_10px_28px_rgba(0,0,0,0.25)] sm:w-28 sm:max-w-none`}>
+              <div className={`relative overflow-hidden rounded-[2rem] border bg-gradient-to-br ${project.accent.shell} p-3 sm:p-4 ${project.accent.border} ${project.accent.glow} transition duration-300 hover:border-white/20`}>
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+                  <div className={`flex h-40 w-full shrink-0 items-center justify-center overflow-hidden rounded-[1.3rem] border ${project.accent.border} bg-[#140F24]/90 p-1 shadow-[0_10px_28px_rgba(0,0,0,0.25)] sm:h-28 sm:w-28 sm:max-w-none`}>
                     {project.image ? (
                       <img
                         src={project.image}
                         alt={project.imageAlt || project.title}
                         loading="lazy"
                         decoding="async"
-                        className="h-full w-full rounded-[0.9rem] object-cover object-top p-0"
+                        className="h-full w-full rounded-[0.95rem] object-cover object-top"
                       />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center rounded-full border border-dashed border-white/10 bg-[#171126]/80 text-sm text-[#E8C468]">
@@ -258,7 +258,7 @@ export default function Projects() {
                   <button
                     type="button"
                     onClick={closeProject}
-                    className="rounded-full border border-white/10 bg-white/5 p-2 text-[#D8C7FF] transition hover:bg-white/10"
+                    className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-[#D8C7FF] transition hover:bg-white/10"
                     aria-label="Close project details"
                   >
                     ✕
@@ -286,7 +286,7 @@ export default function Projects() {
                   <button
                     type="button"
                     onClick={(event) => handleCaseStudy(event, selectedProject.id)}
-                    className={`w-full rounded-full px-5 py-2.5 text-sm font-semibold transition sm:w-auto ${selectedProject.accent.buttonPrimary}`}
+                    className={`min-h-[44px] w-full rounded-full px-5 py-2.5 text-sm font-semibold transition sm:w-auto ${selectedProject.accent.buttonPrimary}`}
                   >
                     Case Study
                   </button>
@@ -295,7 +295,7 @@ export default function Projects() {
                       href={selectedProject.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-full rounded-full border px-5 py-2.5 text-sm font-semibold transition sm:w-auto ${selectedProject.accent.buttonSecondary}`}
+                      className={`flex min-h-[44px] w-full items-center justify-center rounded-full border px-5 py-2.5 text-sm font-semibold transition sm:w-auto ${selectedProject.accent.buttonSecondary}`}
                     >
                       Visit Site ↗
                     </a>

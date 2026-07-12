@@ -63,6 +63,7 @@ const consultationTopics = [
 
 export default function ConsultationPage() {
   const navigate = useNavigate();
+  // Frontend and backend deploy separately. If the backend URL changes, update VITE_API_URL in the production env for the hosting site.
   const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
   const [selectedTopic, setSelectedTopic] = useState("");
   const [formData, setFormData] = useState({
@@ -125,13 +126,13 @@ export default function ConsultationPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#120E1E] text-[#F5F3F7] transition-colors duration-300">
+    <div className="min-h-screen overflow-x-hidden bg-[#120E1E] text-[#F5F3F7] transition-colors duration-300">
       {/* Back button */}
       <motion.button
         onClick={() => navigate("/")}
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="fixed left-3 top-4 z-40 rounded-full border border-white/10 bg-[#140F24]/80 px-4 py-2 text-sm font-semibold text-[#F5F3F7] backdrop-blur transition hover:bg-[#1B1428] sm:left-4 sm:top-20 md:left-10"
+        className="fixed left-3 top-4 z-40 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/10 bg-[#140F24]/80 px-4 py-2 text-sm font-semibold text-[#F5F3F7] backdrop-blur transition hover:bg-[#1B1428] sm:left-4 sm:top-20 md:left-10"
       >
         ← Back to Home
       </motion.button>
@@ -142,7 +143,7 @@ export default function ConsultationPage() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-16 px-3 text-center sm:px-4"
+          className="mb-16 px-4 text-center sm:px-5"
         >
           <h1 className="mb-6 font-heading text-4xl font-bold sm:text-5xl md:text-7xl">
             Get <span className="text-[#E8C468]">Expert Advice</span>
@@ -153,7 +154,7 @@ export default function ConsultationPage() {
           </p>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="mx-auto max-w-6xl px-4 sm:px-5">
           {/* Topic Selection */}
           <motion.div
             variants={containerVariants}
@@ -293,7 +294,7 @@ export default function ConsultationPage() {
                     disabled={loading}
                     whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(168, 123, 255, 0.4)" }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-full rounded-lg bg-[#8B5CF6] px-8 py-3.5 text-lg font-bold text-white shadow-[0_0_35px_rgba(139,92,246,0.25)] transition hover:bg-[#A78BFA] disabled:opacity-50 sm:flex-1"
+                    className="min-h-[44px] w-full rounded-lg bg-[#8B5CF6] px-8 py-3.5 text-lg font-bold text-white shadow-[0_0_35px_rgba(139,92,246,0.25)] transition hover:bg-[#A78BFA] disabled:opacity-50 sm:flex-1"
                   >
                     {loading ? "Sending..." : "Send Request →"}
                   </motion.button>

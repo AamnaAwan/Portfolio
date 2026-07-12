@@ -83,7 +83,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#120E1E] px-3 py-20 text-center sm:px-4 sm:py-24 md:px-10 md:py-28"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#120E1E] px-4 py-20 text-center sm:px-5 sm:py-24 md:px-10 md:py-28"
     >
       <div className="absolute inset-0 -z-10">
         <motion.div
@@ -208,8 +208,8 @@ export default function Hero() {
       </motion.div>
 
       {isResumeOpen && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-[#06040D]/90 px-4 py-6 backdrop-blur-sm" onClick={handleCloseResume}>
-          <div className="relative flex h-full w-full max-w-5xl flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#120E1E] shadow-[0_30px_90px_rgba(0,0,0,0.45)]" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 z-[60] flex min-h-[100dvh] items-center justify-center overflow-y-auto bg-[#06040D]/90 px-3 py-4 backdrop-blur-sm sm:px-4 sm:py-6" onClick={handleCloseResume}>
+          <div className="relative flex max-h-[100dvh] w-full max-w-5xl flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#120E1E] shadow-[0_30px_90px_rgba(0,0,0,0.45)]" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 md:px-5">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#E8C468]">Resume preview</p>
@@ -217,22 +217,22 @@ export default function Hero() {
               </div>
               <button
                 onClick={handleCloseResume}
-                className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-[#F5F3F7] transition hover:bg-white/10"
+                className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-[#F5F3F7] transition hover:bg-white/10"
               >
                 Close
               </button>
             </div>
-            <div className="flex-1 overflow-auto bg-[#f7f5fb] p-3 md:p-5">
+            <div className="flex-1 overflow-auto bg-[#f7f5fb] p-2 sm:p-3 md:p-5">
               <img
                 src={resumeImage}
                 alt="Resume preview"
-                className="mx-auto h-full w-full max-w-4xl rounded-[20px] border border-black/10 bg-white object-contain"
+                className="mx-auto h-auto max-h-[calc(100dvh-176px)] w-full max-w-4xl rounded-[20px] border border-black/10 bg-white object-contain"
               />
             </div>
             <div className="border-t border-white/10 bg-[#140F24] px-4 py-3 md:px-5">
               <button
                 onClick={handleOpenResumeImage}
-                className="rounded-full bg-gradient-to-r from-[#7C3AED] via-[#A78BFA] to-[#F59E0B] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_0_25px_rgba(139,92,246,0.2)] transition hover:scale-[1.02]"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-gradient-to-r from-[#7C3AED] via-[#A78BFA] to-[#F59E0B] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_0_25px_rgba(139,92,246,0.2)] transition hover:scale-[1.02]"
               >
                 Open image
               </button>
